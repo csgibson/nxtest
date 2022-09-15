@@ -18,6 +18,9 @@ Also included an example multipackage script at `pnpm run lint-all`
 This should provide the minimum level of set up to reproduce the issue.
 
 
+### One more thing
+We reference our internal deps a little differently so after cloning you may want to change the dependency in `workspace/opensphere-plugin-geopackage/package.json` from `"opensphere": "0.0.0-development"` to `"opensphere": "workspace:*"`
+
 ### Notes
 `"cacheDirectory": "~/nx"` in `nx.json` is not what we really use, we use a shared mount
 We also set `export NX_PROJECT_GRAPH_CACHE_DIRECTORY="/opt/dev/nx"` so our `nxdeps.json` files don't stomp on eachother
