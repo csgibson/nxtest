@@ -21,3 +21,10 @@ This should provide the minimum level of set up to reproduce the issue.
 ### Notes
 `"cacheDirectory": "~/nx"` in `nx.json` is not what we really use, we use a shared mount
 We also set `export NX_PROJECT_GRAPH_CACHE_DIRECTORY="/opt/dev/nx"` so our `nxdeps.json` files don't stomp on eachother
+
+
+reference:
+https://nrwlcommunity.slack.com/archives/CMFKWPU6Q/p1663264619089729
+
+original repo:
+https://github.com/ngageoint/opensphere-yarn-workspace
