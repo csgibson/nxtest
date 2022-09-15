@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "description": "A simple yarn workspace for OpenSphere development.",
   "keywords": [
-    "opensphere",
-    "yarn"
+    "opensphere"
   ],
   "license": "Apache-2.0",
   "repository": {
@@ -15,19 +14,19 @@
   "bugs": {
     "url": "https://github.com/ngageoint/opensphere-yarn-workspace/issues"
   },
-  "scripts": {},
-  "workspaces": {
-    "packages": [
-      "workspace/*"
-    ],
-    "nohoist": [
-      "**/@ngageoint/closure-webpack-plugin",
-      "**/eslint",
-      "**/eslint-config-*",
-      "**/eslint-plugin-*",
-      "**/husky",
-      "**/karma",
-      "**/karma-*"
-    ]
+  "scripts": {
+    "nx": "nx",
+    "lint-all": "nx run-many --target=lint --all --parallel=11"
+  },
+  "devDependencies": {
+    "@nrwl/cypress": "latest",
+    "@nrwl/js": "latest",
+    "@nrwl/linter": "latest",
+    "@nrwl/node": "latest",
+    "@nrwl/workspace": "latest",
+    "eslint": "latest",
+    "nx": "latest",
+    "pnpm": "latest",
+    "typescript": "latest"
   }
 }

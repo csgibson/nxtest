@@ -1,19 +1,23 @@
-# OpenSphere Yarn Workspace
+# NX Test
+This is a test repo for troubleshooting an issue related to nx.
 
-This project facilitates linking related OpenSphere projects (OpenSphere, plugins, configuration) with [Yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
+After cloning this repo, cd into `workspace` and clone the following:
+https://github.com/ngageoint/opensphere
+https://github.com/ngageoint/opensphere-plugin-geopackage
 
-## Setup
+Globally install `pnpm`
 
-* [Install Yarn](https://yarnpkg.com/en/docs/install).
-* Clone this project.
-* Clone any projects/dependencies under development to the `workspace` directory. All `workspace` subfolders will be linked appropriately in `node_modules` by `yarn install`. At minimum, clone a fork of [OpenSphere](https://github.com/ngageoint/opensphere).
+After cloning `pnpm install` to install deps
 
-Any directories prefixed with `opensphere-plugin-` or `opensphere-config-` will be detected by the [OpenSphere resolver](https://github.com/ngageoint/opensphere-build-resolver) as plugin/config projects and included in the OpenSphere build.
+`pnpm nx init` fails so I manually added a nx.json file
 
-## Yarn Install
+`pnpm nx graph` succeeds but gives empty graph
 
-After cloning all projects, run `yarn install`. Running this from any directory will update links/dependencies for the entire workspace.
+Also included an example multipackage script at `pnpm run lint-all`
 
-## Staging Area
+This should provide the minimum level of set up to reproduce the issue.
 
-The `staging` folder can be used to clone projects you may not always want to include in the OpenSphere build. For example, if you regularly swap out plugins or configuration you can clone them to `staging` and symlink them to `workspace` when needed. They will only be linked by Yarn and detected by the OpenSphere resolver when symlinked to `workspace`. Always run `yarn install` after changing these links to ensure the workspace is set up correctly.
+
+### Notes
+`"cacheDirectory": "~/nx"` in `nx.json` is not what we really use, we use a shared mount
+We also set `export NX_PROJECT_GRAPH_CACHE_DIRECTORY="/opt/dev/nx"` so our `nxdeps.json` files don't stomp on eachother

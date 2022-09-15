@@ -1,0 +1,32 @@
+{
+  "extends": "@nrwl/workspace/presets/npm.json",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "taskRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheDirectory": "~/nx",
+        "cacheableOperations": [
+          "lint",
+          "...there are a lot of these in our real set up"
+        ]
+      }
+    }
+  },
+  "implicitDependencies": {
+    "pnpm-workspace.yaml": "*",
+    "pnpm-lock.yaml": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "nx.json": "*"
+  },
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": true
+    }
+  }
+}
